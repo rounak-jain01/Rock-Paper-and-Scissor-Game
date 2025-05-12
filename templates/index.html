@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ultimate Rock, Paper, and Scissor Game</h1>
+        
+        <div id="welcome-screen">
+            <p>Get ready to test your luck and skill against the computer. Let's see who wins!</p>
+            <div class="name-input">
+                <label for="player-name">Enter Your Name:</label>
+                <input type="text" id="player-name" placeholder="Your name">
+                <button id="start-game">Start Game</button>
+            </div>
+        </div>
+        
+        <div id="game-screen" class="hidden">
+            <h2>Welcome, <span id="display-name"></span>!</h2>
+            
+            <div class="game-grid">
+                <div class="game-header">
+                    <div class="score-container">
+                        <div class="score-box">
+                            <h3>You</h3>
+                            <div id="player-score">0</div>
+                        </div>
+                        <div class="score-divider">vs</div>
+                        <div class="score-box">
+                            <h3>Computer</h3>
+                            <div id="computer-score">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="first-to-five">First to 5 points wins!</div>
+                </div>
+                
+                <div class="choices-container">
+                    <p>Choose your weapon:</p>
+                    
+                    <div class="choices">
+                        <div class="choice" data-choice="1">
+                            <div class="emoji">✊</div>
+                            <p>Rock</p>
+                        </div>
+                        <div class="choice" data-choice="2">
+                            <div class="emoji">✋</div>
+                            <p>Paper</p>
+                        </div>
+                        <div class="choice" data-choice="3">
+                            <div class="emoji">✌️</div>
+                            <p>Scissor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-container">
+                    <!-- This area will be used for showing game history or stats -->
+                </div>
+            </div>
+            
+            <div id="loading-screen" class="hidden">
+                <div class="loading-container">
+                    <h3>Computer is choosing...</h3>
+                    <div class="loading-animation">
+                        <div class="emoji-animation">
+                            <div class="emoji-item">✊</div>
+                            <div class="emoji-item">✋</div>
+                            <div class="emoji-item">✌️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="result-screen" class="hidden">
+                <div class="result-container">
+                    <div class="player-choice">
+                        <h3>You chose:</h3>
+                        <p id="player-choice-text"></p>
+                        <div id="player-choice-emoji" class="result-emoji"></div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="computer-choice">
+                        <h3>Computer chose:</h3>
+                        <p id="computer-choice-text"></p>
+                        <div id="computer-choice-emoji" class="result-emoji"></div>
+                    </div>
+                </div>
+                
+                <div class="result-message">
+                    <h2 id="result-text"></h2>
+                </div>
+                
+                <button id="play-again">Next Round</button>
+            </div>
+            
+            <div id="game-over-screen" class="hidden">
+                <div class="game-over-container">
+                    <h2>Game Over!</h2>
+                    <p id="final-result"></p>
+                    <div class="final-score">
+                        <div class="score-box">
+                            <h3>You</h3>
+                            <div id="final-player-score">0</div>
+                        </div>
+                        <div class="score-divider">vs</div>
+                        <div class="score-box">
+                            <h3>Computer</h3>
+                            <div id="final-computer-score">0</div>
+                        </div>
+                    </div>
+                    <button id="new-game">New Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
